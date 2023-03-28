@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75768f7ca9d3a7639b3cce8f6e3d2167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deadColor: {r: 0.49803922, g: 0.49803922, b: 0.49803922, a: 1}
+  aliveColor: {r: 1, g: 1, b: 0, a: 1}
 --- !u!61 &908013644064223981
 BoxCollider2D:
   m_ObjectHideFlags: 0
