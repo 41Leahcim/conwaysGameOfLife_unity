@@ -4,12 +4,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class CellManager : MonoBehaviour{
-    [SerializeField] private GameObject cellPrefab;
+    [SerializeField] private Cell cellPrefab;
     [SerializeField] private int width;
     [SerializeField] private int height;
     [SerializeField] private float leftX;
     [SerializeField] private float topY;
-    //private GameObject[,] cells;
     private Cell[,] cells;
 
     // Start is called before the first frame update
@@ -21,7 +20,7 @@ public class CellManager : MonoBehaviour{
         for(int y = 0;y < height;y++){
             for(int x = 0;x < width;x++){
                 Vector2 blockScale = cellPrefab.transform.localScale + new Vector3(0.02f, 0.02f, 0.0f);
-                GameObject cell = Instantiate(cellPrefab, new Vector3(leftX + x * blockScale.x, topY - y * blockScale.y, 0), cellPrefab.transform.rotation);
+                Cell cell = Instantiate(cellPrefab, new Vector3(leftX + x * blockScale.x, topY - y * blockScale.y, 0), cellPrefab.transform.rotation);
                 cell.transform.SetParent(transform);
                 cells[y,x] = cell.GetComponent<Cell>();
             }

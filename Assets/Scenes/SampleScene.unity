@@ -683,6 +683,10 @@ PrefabInstance:
       propertyPath: valueText
       value: 
       objectReference: {fileID: 124157746}
+    - target: {fileID: 5460264104628344352, guid: 2431a29f408cb5765a9f9916c42c229f, type: 3}
+      propertyPath: cellPrefab
+      value: 
+      objectReference: {fileID: 3715419746500659042, guid: 0357ef699c86b09c39b45882b13da1bd, type: 3}
     - target: {fileID: 5460264104628344353, guid: 2431a29f408cb5765a9f9916c42c229f, type: 3}
       propertyPath: m_Name
       value: CellManager
