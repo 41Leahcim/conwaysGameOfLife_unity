@@ -6,15 +6,6 @@
             "id": "057fc591-4402-49d0-9c1c-99cb29af9a6b",
             "actions": [
                 {
-                    "name": "MousePress",
-                    "type": "Button",
-                    "id": "251dfa58-1b82-48e9-9bf6-48abccf8d879",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Exit",
                     "type": "Button",
                     "id": "592ac911-507f-4624-9046-39ee843df7a8",
@@ -22,29 +13,9 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Touch",
-                    "type": "Button",
-                    "id": "ff691f9d-5f88-4ec1-862d-22bce02e60b0",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "a18f194c-4c35-43bc-a277-eaf786d1ed68",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Input",
-                    "action": "MousePress",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "114babc4-4c4e-40dd-b925-3effdae81be7",
@@ -53,17 +24,6 @@
                     "processors": "",
                     "groups": "Input",
                     "action": "Exit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "194e2159-008d-451f-9fb9-16f721ff8dee",
-                    "path": "<Touchscreen>/Press",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Input",
-                    "action": "Touch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

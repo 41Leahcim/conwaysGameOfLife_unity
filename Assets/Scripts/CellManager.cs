@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class CellManager : MonoBehaviour{
     [SerializeField] private Cell cellPrefab;
+    [SerializeField] private Vector3 margin = new Vector3(0.02f, 0.02f, 0.0f);
     [SerializeField] private int width;
     [SerializeField] private int height;
     [SerializeField] private float leftX;
@@ -19,7 +20,7 @@ public class CellManager : MonoBehaviour{
         // Create the cells
         for(int y = 0;y < height;y++){
             for(int x = 0;x < width;x++){
-                Vector2 blockScale = cellPrefab.transform.localScale + new Vector3(0.02f, 0.02f, 0.0f);
+                Vector2 blockScale = cellPrefab.transform.localScale + margin;
                 Cell cell = Instantiate(cellPrefab, new Vector3(leftX + x * blockScale.x, topY - y * blockScale.y, 0), cellPrefab.transform.rotation);
                 cell.transform.SetParent(transform);
                 cells[y,x] = cell.GetComponent<Cell>();
@@ -65,39 +66,28 @@ public class CellManager : MonoBehaviour{
         }
     }
 
-    void ProcessPress(Ray ray){
-        // Send the ray
-        RaycastHit2D hit = Physics2D.Raycast(ray.origin, Vector2.zero);
-
-        // Check whether it hit a cell
-        Cell cell = hit.collider?.GetComponent<Cell>();
-
-        // If it hit a cell, toggle it between dead and alive
-        cell?.ToggleAlive();
-    }
-
-    void OnMousePress(InputValue value){
-        if(value.Get<float>() == 1.0){
-            // Create a ray from the mouse position
-            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.value);
-
-            // Send the ray and toggle the cell, if it hits one
-            ProcessPress(ray);
+    public void StepBack(){
+        // Step back all cells on the board
+        foreach(Cell cell in cells){
+            cell.StepBack();
         }
     }
 
-    void OnTouch(InputValue value){
-        if(value.Get<float>() == 1.0){
-            // Create a ray from the touch position
-            Ray ray = Camera.main.ScreenPointToRay(Touchscreen.current.position.value);
-
-            // Send the ray and toggle the cell, if it hits one
-            ProcessPress(ray);
+    public void ClearBoard(){
+        // Kill every cell and clear the history of every cell
+        foreach(Cell cell in cells){
+            cell.SetNeighbors(0);
+            cell.ClearHistory();
         }
     }
 
-    void OnExit(InputValue value){
-        // Close the application
-        Application.Quit(0);
+    public void ClearHistory(){
+        // Clear the history of every cell
+        foreach(Cell cell in cells){
+            cell.ClearHistory();
+        }
     }
+
+    // Close the application
+    void OnExit(InputValue value) => Application.Quit(0);
 }

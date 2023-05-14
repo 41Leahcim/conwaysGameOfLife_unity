@@ -12,7 +12,7 @@ public class UIHandler : MonoBehaviour{
     
     IEnumerator PlayMode(){
         while(true){
-            // Updathe the cells every delay seconds
+            // Update the cells every delay seconds
             manager.UpdateCells();
             yield return new WaitForSeconds(delay);
         }
